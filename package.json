@@ -1,0 +1,76 @@
+{
+  "name": "@ribertec/directus-extension-cep-search",
+  "description": "CEP group interface with autofill for Brazilian address fields using ViaCEP",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "@ribertec",
+  "icon": "person_pin_circle",
+  "keywords": [
+    "directus",
+    "directus-extension",
+    "directus-extension-bundle",
+    "cep",
+    "brazil",
+    "postal-code",
+    "address-autofill",
+    "viacep",
+    "group-interface"
+  ],
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "directus:extension": {
+    "type": "bundle",
+    "path": {
+      "app": "dist/app.js",
+      "api": "dist/api.js"
+    },
+    "entries": [
+      {
+        "type": "interface",
+        "name": "cep-input",
+        "source": "src/cep-input/index.js"
+      },
+      {
+        "type": "interface",
+        "name": "cep-search",
+        "source": "src/cep-search/index.js"
+      },
+      {
+        "type": "display",
+        "name": "cep-display",
+        "source": "src/cep-display/index.js"
+      }
+    ],
+    "sandbox": {
+      "enabled": true,
+      "requestedScopes": {}
+    },
+    "host": "^11.0.0"
+  },
+  "scripts": {
+    "build": "directus-extension build",
+    "dev": "directus-extension build -w --no-minify",
+    "link": "directus-extension link",
+    "validate": "directus-extension validate"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "17.0.5",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.4",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "semantic-release": "^25.0.3",
+    "vue": "^3.5.27"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorGRibeiro/directus-extension-cep-search.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IgorGRibeiro/directus-extension-cep-search/issues"
+  },
+  "homepage": "https://github.com/IgorGRibeiro/directus-extension-cep-search#readme"
+}
