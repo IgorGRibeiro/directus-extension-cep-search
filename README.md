@@ -2,7 +2,7 @@
 
 A Directus interface bundle for Brazilian address forms with automatic CEP (postal code) lookup via [ViaCEP](https://viacep.com.br/). Add a group field to your collection, place address child fields inside it, and the form autofills when the user types a CEP.
 
-![Extension demo](https://raw.githubusercontent.com/IgorGRibeiro/directus-extension-cep-search/main/images/demo.gif)
+![Extension demo](https://raw.githubusercontent.com/IgorGRibeiro/directus-extension-cep-search/master/images/demo.gif)
 
 > **Note:** According to Directus CRM limitations, it's impossible to provide translations for the extension. For this reason, although this documentation is in English for marketplace standards, all the interface and validations are in Portuguese (BR).
 
