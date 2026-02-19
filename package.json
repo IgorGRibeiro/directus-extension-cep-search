@@ -1,7 +1,7 @@
 {
   "name": "@ribertec/directus-extension-cep-search",
   "description": "CEP group interface with autofill for Brazilian address fields using ViaCEP",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "@ribertec",
   "icon": "person_pin_circle",
