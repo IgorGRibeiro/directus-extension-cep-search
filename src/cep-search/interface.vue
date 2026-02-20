@@ -13,6 +13,7 @@
 			:group="field.field"
 			:fields="fieldsWithStatus"
 			:model-value="values"
+			:initial-values="initialValues"
 			:primary-key="primaryKey"
 			:disabled="disabled || isFetching"
 			:loading="loading || isFetching"
@@ -38,6 +39,10 @@ const props = defineProps({
 		default: () => [],
 	},
 	values: {
+		type: Object,
+		default: () => ({}),
+	},
+	initialValues: {
 		type: Object,
 		default: () => ({}),
 	},
@@ -131,7 +136,7 @@ const fieldsWithStatus = computed(() => {
 	});
 });
 
-// Watch CEP field value; debounce the autofill trigger
+// Watch CEP field value (edits only); fires when the user types a new CEP
 watch(
 	() => cepField.value && props.values[cepField.value.field],
 	(newValue) => {
@@ -142,7 +147,6 @@ watch(
 		if (clean.length < 8) {
 			fetchStatus.value = null;
 			fetchError.value = null;
-			clearTimeout(debounceTimer);
 			return;
 		}
 
@@ -183,7 +187,9 @@ async function performAutofill(cleanedCEP) {
 
 		for (const mapping of fieldMappings) {
 			if (!mapping.field || !mapping.value) continue;
-			if (!props.overwriteExisting && props.values[mapping.field]) continue;
+			// Check both edits (values) and the original saved data (initialValues)
+			const currentValue = props.values[mapping.field] ?? props.initialValues?.[mapping.field];
+			if (!props.overwriteExisting && currentValue) continue;
 			updates[mapping.field] = mapping.value;
 		}
 
