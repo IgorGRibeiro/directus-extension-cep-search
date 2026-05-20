@@ -5,10 +5,6 @@
 			Adicione um campo filho, defina sua interface como "Campo de Endereço" e selecione o tipo "CEP".
 		</v-notice>
 
-		<v-notice v-if="fetchError" type="danger" class="fetch-error">
-			{{ fetchError }}
-		</v-notice>
-
 		<v-form
 			:group="field.field"
 			:fields="fieldsWithStatus"
